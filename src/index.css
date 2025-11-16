@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Data Science Theme - Dark Mode Primary */
+    --background: 215 25% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 25% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 25% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Cyan Accent for Data/Tech Feel */
+    --primary: 191 100% 50%;
+    --primary-foreground: 215 25% 8%;
+
+    /* Purple Secondary */
+    --secondary: 258 90% 66%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 191 100% 50%;
+    --accent-foreground: 215 25% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 20%;
+    --ring: 191 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(191 100% 50%), hsl(258 90% 66%));
+    --gradient-dark: linear-gradient(180deg, hsl(215 25% 8%), hsl(215 25% 12%));
+    --glow-cyan: 0 0 20px hsl(191 100% 50% / 0.3);
+    --glow-purple: 0 0 20px hsl(258 90% 66% / 0.3);
+    
+    --sidebar-background: 215 25% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 191 100% 50%;
+    --sidebar-primary-foreground: 215 25% 8%;
+    --sidebar-accent: 215 20% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 20% 20%;
+    --sidebar-ring: 191 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Glow effects */
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+
+  /* Animated gradient background */
+  .animated-gradient {
+    background: linear-gradient(135deg, hsl(191 100% 50% / 0.1), hsl(258 90% 66% / 0.1));
+    animation: gradient-shift 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+}
